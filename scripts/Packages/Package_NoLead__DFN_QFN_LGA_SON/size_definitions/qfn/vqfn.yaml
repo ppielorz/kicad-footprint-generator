@@ -511,13 +511,13 @@ VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm:
   device_type: 'VQFN'
   #manufacturer: 'man'
   #part_number: 'mpn'
-  size_source: 'http://www.ti.com/lit/ds/symlink/cc1312r.pdf'
+  size_source: 'http://www.ti.com/lit/ds/symlink/cc1312r.pdf#page=48'
   ipc_class: 'qfn' # 'qfn_pull_back'
   #ipc_density: 'least' #overwrite global value for this device.
   # custom_name_format:
   body_size_x:
     minimum: 6.9
-    nominal: 7
+    #nominal: 7
     maximum: 7.1
   body_size_y:
     minimum: 6.9
@@ -528,24 +528,22 @@ VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm:
     #nominal: 0.85
     maximum: 1
   lead_width:
-    #minimum: 0.18
-    nominal: 0.24
-    #maximum: 0.3
+    minimum: 0.18
+    #nominal: 0.24
+    maximum: 0.3
   lead_len:
-    #minimum: 0.25
-    nominal: 0.3
-    #maximum: 0.35
+    minimum: 0.3
+    #nominal: 0.3
+    maximum: 0.5
 
   EP_size_x:
-    minimum: 5.05
     nominal: 5.15
-    maximum: 5.25
+    tolerance: 0.1
   EP_size_y:
-    minimum: 5.05
     nominal: 5.15
-    maximum: 5.25
+    tolerance: 0.1
   # EP_paste_coverage: 0.65
-  EP_num_paste_pads: [2, 2]
+  EP_num_paste_pads: [5, 5]
   # heel_reduction: 0.05 #for relatively large EP pads (increase clearance)
 
   thermal_vias:
@@ -556,8 +554,8 @@ VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm:
     # EP_num_paste_pads: [2, 2]
     # paste_between_vias: 1
     # paste_rings_outside: 1
-    EP_paste_coverage: 0.7
-    grid: [1.2, 1.2]
+    #EP_paste_coverage: 0.7
+    #grid: [1.2, 1.2]
     # bottom_pad_size:
     paste_avoid_via: False
 
