@@ -521,7 +521,7 @@ VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm:
     maximum: 7.1
   body_size_y:
     minimum: 6.9
-    nominal: 7
+    #nominal: 7
     maximum: 7.1
   overall_height:
     #minimum: 0.8
@@ -543,11 +543,11 @@ VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm:
     nominal: 5.15
     tolerance: 0.1
   # EP_paste_coverage: 0.65
-  EP_num_paste_pads: [5, 5]
+  EP_num_paste_pads: [2, 2]
   # heel_reduction: 0.05 #for relatively large EP pads (increase clearance)
 
   thermal_vias:
-    count: [3, 3]
+    count: [5, 5]
     drill: 0.33
     # min_annular_ring: 0.15
     paste_via_clearance: 0.1
