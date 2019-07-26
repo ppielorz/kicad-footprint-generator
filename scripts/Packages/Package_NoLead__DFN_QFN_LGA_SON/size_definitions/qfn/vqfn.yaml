@@ -548,7 +548,7 @@ VQFN-48-1EP_7x7mm_P0.5mm_EP5.15x5.15mm:
 
   thermal_vias:
     count: [5, 5]
-    drill: 0.33
+    drill: 0.2
     # min_annular_ring: 0.15
     paste_via_clearance: 0.1
     # EP_num_paste_pads: [2, 2]
