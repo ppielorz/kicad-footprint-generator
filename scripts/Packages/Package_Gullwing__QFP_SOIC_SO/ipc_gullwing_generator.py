@@ -31,7 +31,7 @@ class Gullwing():
         self.configuration = configuration
         with open(ipc_doc_file, 'r') as ipc_stream:
             try:
-                self.ipc_defintions = yaml.load(ipc_stream)
+                self.ipc_defintions = yaml.safe_load(ipc_stream)
 
                 self.configuration['min_ep_to_pad_clearance'] = 0.2
                 if 'ipc_generic_rules' in self.ipc_defintions:
@@ -567,15 +567,15 @@ class Gullwing():
         file_handler.writeFile(filename)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='use confing .yaml files to create footprints.')
+    parser = argparse.ArgumentParser(description='use confing .yaml files to create footprints. See readme.md for details about the parameter file format.')
     parser.add_argument('files', metavar='file', type=str, nargs='+',
                         help='list of files holding information about what devices should be created.')
     parser.add_argument('--global_config', type=str, nargs='?', help='the config file defining how the footprint will look like. (KLC)', default='../../tools/global_config_files/config_KLCv3.0.yaml')
     parser.add_argument('--series_config', type=str, nargs='?', help='the config file defining series parameters.', default='../package_config_KLCv3.yaml')
-    parser.add_argument('--density', type=str, nargs='?', help='Density level (L,N,M)', default='N')
+    parser.add_argument('--density', type=str, nargs='?', help='IPC density level (L,N,M)', default='N')
     parser.add_argument('--ipc_doc', type=str, nargs='?', help='IPC definition document', default='../ipc_definitions.yaml')
     parser.add_argument('--force_rectangle_pads', action='store_true', help='Force the generation of rectangle pads instead of rounded rectangle')
-    parser.add_argument('--kicad4_compatible', action='store_true', help='Create footprints kicad 4 compatible')
+    parser.add_argument('--kicad4_compatible', action='store_true', help='Create footprints compatible with version 4 (avoids round-rect and custom pads).')
     args = parser.parse_args()
 
     if args.density == 'L':
@@ -587,13 +587,13 @@ if __name__ == "__main__":
 
     with open(args.global_config, 'r') as config_stream:
         try:
-            configuration = yaml.load(config_stream)
+            configuration = yaml.safe_load(config_stream)
         except yaml.YAMLError as exc:
             print(exc)
 
     with open(args.series_config, 'r') as config_stream:
         try:
-            configuration.update(yaml.load(config_stream))
+            configuration.update(yaml.safe_load(config_stream))
         except yaml.YAMLError as exc:
             print(exc)
 
@@ -608,7 +608,7 @@ if __name__ == "__main__":
 
         with open(filepath, 'r') as command_stream:
             try:
-                cmd_file = yaml.load(command_stream)
+                cmd_file = yaml.safe_load(command_stream)
             except yaml.YAMLError as exc:
                 print(exc)
         header = cmd_file.pop('FileHeader')
